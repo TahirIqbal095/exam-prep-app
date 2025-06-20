@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Container from "@/components/container";
 import Navbar from "@/components/navbar";
 
-const inter = Inter({
-    variable: "--font-inter",
+const outfit = Outfit({
+    variable: "--font-outfit",
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
     subsets: ["latin"],
 });
 
@@ -22,7 +23,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${inter.className} antialiased bg-gray-100`}>
+            <body
+                className={`${outfit.className} bg-background relative antialiased`}
+            >
                 <Container>
                     <Navbar />
                 </Container>

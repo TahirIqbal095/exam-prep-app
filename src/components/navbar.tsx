@@ -4,7 +4,12 @@ import React, { useState } from "react";
 import Container from "./container";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import {
+    motion,
+    useMotionValueEvent,
+    useScroll,
+    useTransform,
+} from "motion/react";
 
 export default function Navbar() {
     const navItems = [
@@ -17,6 +22,8 @@ export default function Navbar() {
     const [hovered, setHovered] = useState<number | null>(null);
     const [scrolled, setScrolled] = useState<boolean>(false);
     const { scrollY } = useScroll();
+    const width = useTransform(scrollY, [0, 100], ["50%", "40%"]);
+    const y = useTransform(scrollY, [0, 100], [0, 10]);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         if (latest > 20) {
@@ -27,14 +34,12 @@ export default function Navbar() {
     });
 
     return (
-        <Container className="z-10">
+        <Container>
             <motion.nav
-                animate={{
+                style={{
                     boxShadow: scrolled ? "var(--shadow-aceternity)" : "none",
-                    width: scrolled
-                        ? "min(100%, 40vw)" // Use 40vw but never more than 100%
-                        : "100%",
-                    y: scrolled ? 10 : 0,
+                    width,
+                    y,
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-5xl items-center justify-between rounded-full bg-white px-3 py-2"
