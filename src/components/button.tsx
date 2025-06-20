@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import React from "react";
+import Spinner from "./spinner";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     variant?: "primary" | "secondary" | "danger";
@@ -9,7 +10,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const baseClasses =
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none h-12 cursor-pointer rounded-full px-8 text-base transition-transform duration-300 hover:translate-y-[-2px]";
+    "flex items-center justify-center gap-4 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none h-12 cursor-pointer rounded-full px-8 text-base transition-transform duration-300 hover:translate-y-[-2px]";
 
 const variantClasses = {
     primary: `${baseClasses} bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg`,
@@ -46,10 +47,8 @@ export default function Button({
             aria-busy={loading}
             {...props}
         >
-            {loading ? (
-                <span className="mr-2 inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent align-middle" />
-            ) : null}
             <span className={loading ? "opacity-70" : ""}>{children}</span>
+            {loading ? <Spinner height="4" width="8" /> : null}
         </button>
     );
 }

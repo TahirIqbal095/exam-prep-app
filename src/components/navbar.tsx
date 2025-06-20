@@ -14,9 +14,8 @@ import {
 export default function Navbar() {
     const navItems = [
         { title: "About", href: "/about" },
-        { title: "Projects", href: "/projects" },
-        { title: "Contact", href: "/contact" },
-        { title: "Blog", href: "/blog" },
+        { title: "Career", href: "/career" },
+        { title: "Test Series", href: "/tests" },
     ];
 
     const [hovered, setHovered] = useState<number | null>(null);
