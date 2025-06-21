@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { motion } from "motion/react";
 
@@ -6,13 +8,7 @@ export default function Heading() {
         "Unlock smarter study strategies and personalized practice with our AI-driven exam prep platform.";
     return (
         <>
-            <motion.h1
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="from-foreground via-foreground/90 to-foreground/70 mb-6 flex flex-col gap-2 bg-gradient-to-r bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl"
-            >
+            <h1 className="from-foreground via-foreground/90 to-foreground/70 mb-6 flex flex-col gap-2 bg-gradient-to-r bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
                 <span>
                     Crack Your{" "}
                     <span className="font-serif font-light italic">
@@ -25,7 +21,7 @@ export default function Heading() {
                         Confidence
                     </span>
                 </span>
-            </motion.h1>
+            </h1>
 
             <p className="max-w-xl">
                 {subHeading.split(" ").map((word, idx) => (
