@@ -3,7 +3,7 @@ import Container from "@/components/container";
 import { FaArrowRight } from "react-icons/fa";
 import Scales from "@/components/scales";
 import Banner from "@/components/banner";
-import Heading from "@/components/heading";
+import Heading from "@/components/hero-heading";
 import FeatureList from "@/components/featureList";
 
 export default function Home() {
