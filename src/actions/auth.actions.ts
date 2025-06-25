@@ -7,9 +7,3 @@ export async function signInWithGithub(callbackUrl?: string) {
         redirectTo: callbackUrl || "/profile",
     });
 }
-
-export async function signOut() {
-    return signIn("github", {
-        redirectTo: "/signin",
-    });
-}

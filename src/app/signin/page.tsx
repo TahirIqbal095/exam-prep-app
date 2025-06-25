@@ -1,12 +1,12 @@
 import Container from "@/components/container";
 import SignIn from "@/components/signin";
 
-export default function LoginPage({
+export default async function LoginPage({
     searchParams,
 }: {
-    searchParams: { callbackUrl?: string };
+    searchParams: Promise<{ callbackUrl?: string }>;
 }) {
-    const params = searchParams;
+    const params = await searchParams;
     return (
         <Container className="flex h-screen items-center justify-center">
             <SignIn callbackUrl={params.callbackUrl} />
