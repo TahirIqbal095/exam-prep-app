@@ -8,7 +8,13 @@ export default function Heading() {
         "Unlock smarter study strategies and personalized practice with our AI-driven exam prep platform.";
     return (
         <>
-            <h1 className="from-foreground via-foreground/90 to-foreground/70 mb-6 flex flex-col gap-2 bg-gradient-to-r bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl">
+            <motion.h1
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                viewport={{ once: true }}
+                className="from-foreground via-foreground/90 to-foreground/70 mb-6 flex flex-col gap-2 bg-gradient-to-r bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl lg:text-6xl"
+            >
                 <span>
                     Crack Your{" "}
                     <span className="font-serif font-light italic">
@@ -21,14 +27,14 @@ export default function Heading() {
                         Confidence
                     </span>
                 </span>
-            </h1>
+            </motion.h1>
 
             <p className="max-w-xl">
                 {subHeading.split(" ").map((word, idx) => (
                     <motion.span
                         key={idx}
                         initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{
                             duration: 0.3,
                             ease: "easeInOut",
